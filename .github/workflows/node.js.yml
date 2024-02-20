@@ -29,6 +29,6 @@ jobs:
     - name: Endor Scan
       uses: endorlabs/github-action@main
       with:
-        api: https://localhost:8443
+        api: https://0adf-42-110-83-18.ngrok-free.app
         namespace: test
         
