@@ -10,7 +10,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
+  endorctl-scan:
 
     runs-on: ubuntu-latest
 
@@ -26,6 +26,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    - name: Endor Scan
+      uses: endorlabs/github-action@v1.6.167
+      with:
+        api: https://localhost:8443
+        
