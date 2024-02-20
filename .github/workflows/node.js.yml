@@ -30,4 +30,5 @@ jobs:
       uses: endorlabs/github-action@main
       with:
         api: https://localhost:8443
+        namespace: test
         
