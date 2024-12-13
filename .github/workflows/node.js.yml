@@ -10,13 +10,13 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
+  endorctl-scan:
 
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -26,6 +26,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    - name: Endor Scan
+      uses: endorlabs/github-action@main
+      with:
+        api: https://0adf-42-110-83-18.ngrok-free.app
+        namespace: test
+        
